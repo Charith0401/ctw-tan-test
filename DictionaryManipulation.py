@@ -1,18 +1,17 @@
 def sort_dict_by_values(d:dict)-> dict:
 
-    #taking parameter d and stripping it to just the values of the keys.
-    x = d.values()
-
-    #converting the dictionary to a list to apply operations.
-    value_list = list(x)
-
-    #the list is then sorted via a built-in function in ascending order.
-    sorted_value_list = sorted(value_list)
-
+    #this stores the items in the dictionary as tuples
     dict = d.items()
 
-    sorted_dict = {k:v for k,v in sorted(dict.items(), key=lambda item: item[1])}
+    #line 11 will essentially map the variable "k" to a key in the tuple
+    #and "v" to the corresponding value of this key and is surrounded by a "sorted"
+    #function.
 
-    print("sorted dict",sorted_dict)
+    #additionally, a key is provided to this "sorted" function that will sort the 
+    #tuples based on the second value which is the value of the key.
+
+    sorted_dict = {k:v for k,v in sorted(dict, key=lambda item: item[1])}
+
+    return sorted_dict
 
 print("Sorted dict values: ",sort_dict_by_values({"a":2,"b":1,"c":3}))    
